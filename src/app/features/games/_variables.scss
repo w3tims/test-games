@@ -1,0 +1,11 @@
+$header-height: 4rem;
+
+$image-width: 260px;
+$image-height: 154px;
+$image-ribbon-padding: 5px;
+$ribbon-size: 200px; // todo rename
+$ribbon-text-offset: 16px;
+$aspect-ratio-percent: ($image-height / $image-width) * 100%;
+
+$header-nav-active: #8FC300;
+$header: #3F3F3F;

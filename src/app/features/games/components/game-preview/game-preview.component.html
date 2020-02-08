@@ -1,0 +1,58 @@
+<div class="game-preview__outer-container">
+  <div class="game-preview__inner-container">
+
+    <div class="game-preview__ribbon-container" *ngIf="showNew(navSection$ | async) || shopTop(navSection$ | async)">
+      <div class="game-preview__ribbon-text" *ngIf="shopTop(navSection$ | async)">TOP</div>
+      <div class="game-preview__ribbon-text" *ngIf="showNew(navSection$ | async) && !shopTop(navSection$ | async)">NEW</div>
+      <div class="game-preview__ribbon"></div>
+      <div class="game-preview__under-ribbon--top"></div>
+      <div class="game-preview__under-ribbon--right"></div>
+    </div>
+
+    <div class="game-preview__image-padding">
+      <div class="game-preview__image-container">
+        <img [src]="game.image" [alt]="game.name">
+        <div class="game-preview__jackpot-container" *ngIf="game.jackpot">
+          <span class="game-preview__jackpot">
+            {{game.jackpot | currency:'GBP':'symbol-narrow'}}
+          </span>
+        </div>
+        <div class="game-preview__hover">
+          <div class="game-preview__hover-circle"></div>
+          <div class="game-preview__game-name-container">
+            {{game.name | uppercase}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<svg width='0' height='0'>
+  <defs>
+    <clipPath id="ribbon">
+      <path d="M 270 95 Q 240 30 175 0 Q 205 0 225 0 Q 255 15 270 45 Z"></path>
+    </clipPath>
+  </defs>
+</svg>
+
+<svg width='0' height='0'>
+  <defs>
+    <clipPath id="top">
+      <path
+        d="M 125 45 Q 140 10 175 0 Q 205 0 225 0 Q 190 10 175 45 L 155 35 Z"
+      ></path>
+    </clipPath>
+  </defs>
+</svg>
+
+<svg width='0' height='0'>
+  <defs>
+    <clipPath id="right">
+      <path
+        d="M 270 95 L 270 45 Q 265 90 225 95 Q 230 105 235 115 Q 230 130 225 145 Q 265 140 270 95 Z"
+      ></path>
+    </clipPath>
+  </defs>
+</svg>

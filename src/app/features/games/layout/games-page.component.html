@@ -1,0 +1,32 @@
+<!--TODO: move header to separate component with-->
+<header>
+  <div class="header__scroll-container">
+    <div class="games-page__container header__container">
+      <nav
+        *ngFor="let navSection of navSections"
+        [routerLink]="'/games' + ( navSection.route ? '/' + navSection.route : '' )"
+        [class.active]="(routerFacade.navSection$ | async).title === navSection.title"
+      >
+        {{navSection.title}}
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="games-page__content">
+  <div class="games-page__container games-list__container" *ngIf="(activeGamesWithJackpots$ | async).length > 0; else noResults">
+    <app-game-preview
+      *ngFor="let game of (activeGamesWithJackpots$ | async)"
+      [game]="game"
+    ></app-game-preview>
+
+    <div class="games-page__space-filler"></div>
+    <div class="games-page__space-filler"></div>
+    <div class="games-page__space-filler"></div>
+  </div>
+  <ng-template #noResults>
+    <p class="games-page__container games-page__no-results">
+      No results!
+    </p>
+  </ng-template>
+</div>

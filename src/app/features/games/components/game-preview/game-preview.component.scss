@@ -1,0 +1,158 @@
+@import 'src/app/features/games/variables';
+
+.game-preview__outer-container {
+  padding-top: $aspect-ratio-percent;
+  min-width: $image-width + 2 * $image-ribbon-padding;
+  width: 100%;
+
+  position: relative;
+}
+
+.game-preview__inner-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.game-preview__image-padding {
+  padding: $image-ribbon-padding;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-preview__image-container {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+.game-preview__outer-container:hover .game-preview__hover {
+  opacity: 1;
+}
+
+.game-preview__hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-preview__hover-circle {
+  width: 25%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid white;
+  padding-top: 25%;
+  background: rgba(107, 171, 53, 0.9);
+  position: relative;
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 32px solid white;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 7px;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.game-preview__game-name-container {
+  bottom: 0;
+}
+
+.game-preview__jackpot-container {
+  top: 0;
+}
+
+.game-preview__game-name-container, .game-preview__jackpot-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20%;
+  background: rgba(0,0,0,0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+}
+.game-preview__ribbon-container {
+  .game-preview__ribbon-text {
+    position: absolute;
+    right: $ribbon-text-offset;
+    top: $ribbon-text-offset;
+    transform: rotate(45deg);
+    z-index: 2;
+    color: white;
+  }
+
+  .game-preview__ribbon, .game-preview__under-ribbon--top, .game-preview__under-ribbon--right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: $image-width + 2 * $image-ribbon-padding;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $ribbon-size;
+      height: $ribbon-size;
+    }
+  }
+  .game-preview__ribbon {
+    clip-path: url(#ribbon);
+    z-index: 1;
+    &::after {
+      background: rgb(29,64,9);
+      background: linear-gradient(90deg, rgba(29,64,9,1) 0%, rgba(140,215,46,1) 87%, rgba(221,255,178,1) 95%, rgba(107,162,37,1) 100%);
+    }
+  }
+
+  .game-preview__under-ribbon--top {
+    clip-path: url(#top);
+    z-index: -1;
+    &::after {
+      background: black;
+      // TODO: provide proper gradient (vertical)
+    }
+  }
+
+  .game-preview__under-ribbon--right {
+    clip-path: url(#right);
+    z-index: -1;
+    &::after {
+      background: black;
+      // TODO: provide proper gradient (horizontal)
+    }
+  }
+}
+
+

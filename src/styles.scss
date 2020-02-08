@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Bree Serif', serif;
+}
+
+html {
+  overflow-y: scroll; // for width not to change when scrollbar appears
+}

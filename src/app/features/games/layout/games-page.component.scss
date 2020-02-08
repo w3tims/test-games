@@ -1,0 +1,78 @@
+@import 'src/app/features/games/variables';
+
+header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: $header;
+  color: white;
+  height: $header-height;
+  font-size: 24px;
+  z-index: 3;
+  top: 0;
+  overflow: hidden;
+  nav {
+    height: $header-height;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    &.active {
+      background: $header-nav-active;
+    }
+  }
+}
+
+.games-page__no-results {
+  padding: 0 1rem;
+  font-size: 24px;
+}
+
+.games-page__content {
+  margin-top: $header-height;
+  position: relative;
+}
+
+.header__container {
+  display: flex;
+}
+
+.header__scroll-container {
+  overflow-x: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.games-list__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  & > * {
+    // can be moved to :host of "app-gape-preview"
+    margin-top: 2rem;
+    cursor: pointer;
+    display: flex;
+    flex-grow: 1;
+  }
+  .games-page__space-filler{
+    height: 0;
+    flex-grow: 1;
+
+    min-width: 270px;
+    //&::after {
+    //  content: '';
+    //  min-width: 270px;
+    //}
+  }
+}
+
+.games-page__container {
+  width: 1200px;
+  max-width: 100%;
+  margin: auto;
+}
